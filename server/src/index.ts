@@ -2,7 +2,8 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 
-const port = 8080;
+import { port } from "./config/config";
+
 const app = express();
 
 app.use(cors({})); // add cors settings for frontend later.
