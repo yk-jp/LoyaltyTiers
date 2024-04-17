@@ -11,10 +11,13 @@ services:
     volumes:
       - ./dataset:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432
-  app:
+      - ${POSTGRES_PORT}:5432
+  server:
     image: loyaltytiers-server
+    restart: always
+    build:
+      context: . # point at the Dockerfile in the current dir to auto build
     ports:
-      - 8080:3000
-
-
+      - ${API_PORT}:8080
+    volumes:
+      - ./:/app # enable hot-reloading using nodemon to speed up development
