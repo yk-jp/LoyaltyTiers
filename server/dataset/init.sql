@@ -11,7 +11,9 @@ CREATE TABLE "orders" (
   "ordered_at" timestamp
 );
 
-ALTER TABLE "orders" ADD FOREIGN KEY ("customer_id") REFERENCES "customers" ("id");
+-- one to many relationship. Add delete cascade.
+ALTER TABLE "orders" ADD FOREIGN KEY ("customer_id") REFERENCES "customers" ("id") ON DELETE CASCADE ON UPDATE NO ACTION;
+
 
 -- add initial dataset in customers table.
 COPY customers(name) FROM '/docker-entrypoint-initdb.d/customer.csv' DELIMITER ',' CSV HEADER;
