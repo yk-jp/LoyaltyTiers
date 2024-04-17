@@ -5,11 +5,10 @@ CREATE TABLE "customers" (
 );
 
 CREATE TABLE "orders" (
-  "id" INTEGER PRIMARY KEY,
+  "id" varchar PRIMARY KEY,
   "customer_id" integer,
-  "order_total" integer,
   "total_cents" integer,
-  "created_at" timestamp DEFAULT 'now()'
+  "ordered_at" timestamp
 );
 
 ALTER TABLE "orders" ADD FOREIGN KEY ("customer_id") REFERENCES "customers" ("id");
