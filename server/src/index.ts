@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 
-import { port, pool } from "./config/config";
+import { port } from "./config/config";
 import router from "./router";
 
 const app = express();
