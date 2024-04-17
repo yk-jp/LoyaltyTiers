@@ -13,15 +13,14 @@ export const saveOrder = async (
       "INSERT INTO orders (id, customer_id, total_cents, ordered_at) " +
         "VALUES($1, $2, $3, $4)",
       [
-        orderDetails.customerId,
+        orderDetails.orderId,
         orderDetails.customerId,
         orderDetails.totalInCents,
         orderDetails.date,
       ]
     );
+    res.status(200).json({ message: "Your order was successfully received." });
   } catch (e) {
-    res.sendStatus(500);
+    res.status(500).json({ message: e.message });
   }
-
-  res.sendStatus(200);
 };
