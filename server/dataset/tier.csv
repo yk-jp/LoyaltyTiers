@@ -1,4 +1,4 @@
-name,expense
-Bronze,0
-Silver,100
-Gold,500
+name,expense,next_target_expense,downgrade_to,upgrade_to
+Bronze,0,100,null,Silver
+Silver,100,500,Gold
+Gold,500,0,null
