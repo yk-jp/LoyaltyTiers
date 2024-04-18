@@ -8,3 +8,7 @@ delete-i-server:
 # delete image forcefully
 delete-if-server:
 	docker rmi -f loyaltytiers-server
+
+# delete container
+delete-ic-postgres:
+	docker rm postgres
