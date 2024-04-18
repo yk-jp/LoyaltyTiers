@@ -1,0 +1,44 @@
+import express from "express";
+
+import { db } from "../config/config";
+import { GetCustomerInfoParams } from "types/queryParams";
+
+export const getCustomerInfo = async (
+  req: express.Request<GetCustomerInfoParams, {}, {}, {}>, // type annotatation for request params
+  res: express.Response
+) => {
+  const params: GetCustomerInfoParams = req.params;
+  const customerId: number = params.customerId;
+
+  try {
+    let customerInfo = await db.query(
+      "SELECT t.name as current_tier, " +
+        "DATE_TRUNC('year', CURRENT_DATE) - INTERVAL '1 year' as start_of_tier_calculation, " +
+        "c.total_expense_tier, " +
+        "CASE " +
+        "WHEN t.next_target_expense - c.total_expense_tier < 0 THEN 0 " +
+        "ELSE t.next_target_expense - c.total_expense_tier " +
+        "END AS expense_to_next_tier, " +
+        "CASE " +
+        "WHEN c.total_expense_tier < t.expense THEN t.downgrade_to " +
+        "ELSE NULL " +
+        "END AS downgrade_to, " +
+        "DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year' - INTERVAL '1 day' AS end_of_year, " +
+        "CASE " +
+        "WHEN c.total_expense_tier < t.expense THEN t.expense - c.total_expense_tier " +
+        "ELSE 0 " +
+        "END AS to_stay_current_tier " +
+        "FROM customers c" +
+        "JOIN tiers t ON c.tier_id = t.id " +
+        "WHERE c.id = $1 ",
+      [customerId]
+    ).rows[0];
+
+    res.status(200).json({
+      message: "OK",
+      customer: customerInfo,
+    });
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+};
