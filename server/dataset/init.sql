@@ -12,7 +12,6 @@ CREATE TABLE "customers" (
   "name" varchar,
   "tier_id" integer DEFAULT 1,
   "total_expense_tier" integer DEFAULT 0,
-  "last_purchase_at" timestamp,
   "created_at" timestamp DEFAULT 'now()'
 );
 
