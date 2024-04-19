@@ -20,6 +20,7 @@ const server = http.createServer(app);
 
 // run the update script at the last day of a year
 schedule.scheduleJob("59 23 31 12 * *", periodicUpdate);
+// schedule.scheduleJob("*/1 * * * *", periodicUpdate);
 
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
