@@ -16,11 +16,11 @@ CREATE TABLE "customers" (
 );
 
 CREATE TABLE "orders" (
-  "id" integer PRIMARY KEY,
+  "id" varchar PRIMARY KEY,
   "customer_id" integer,
   "order_total" integer,
   "total_cents" integer,
-  "created_at" timestamp DEFAULT 'now()'
+  "ordered_at" timestamp DEFAULT 'now()'
 );
 
 -- one to many

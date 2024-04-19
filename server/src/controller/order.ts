@@ -46,6 +46,7 @@ export const saveOrder = async (
 ) => {
   const orderDetails: CompleteOrderDto = req.body;
   try {
+    await db.query("BEGIN");
     await db.query(
       "INSERT INTO orders (id, customer_id, total_cents, ordered_at) " +
         "VALUES($1, $2, $3, $4)",
@@ -56,8 +57,24 @@ export const saveOrder = async (
         orderDetails.date,
       ]
     );
+
+    // update customer info
+    await db.query(
+      "UPDATE customers " +
+        "SET total_expense_tier = total_expense_tier + $1, " +
+        "tier_id = CASE " +
+        "WHEN total_expense_tier + $1 >= 500 THEN (SELECT id FROM tiers WHERE name = 'Gold') " +
+        "WHEN total_expense_tier + $1 >= 100 THEN (SELECT id FROM tiers WHERE name = 'Silver') " +
+        "ELSE (SELECT id FROM tiers WHERE name = 'Bronze') " +
+        "END " +
+        "WHERE id = $2 ",
+      [orderDetails.totalInCents, orderDetails.customerId]
+    );
+
+    await db.query("COMMIT");
     res.status(200).json({ message: "Your order was successfully received." });
   } catch (e) {
+    await db.query("ROLLBACK");
     res.status(500).json({ message: e.message });
   }
 };

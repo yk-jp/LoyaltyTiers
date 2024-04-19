@@ -28,7 +28,7 @@ const updateCustomerInfo = async () => {
         "COALESCE(SUM(o.total_cents), 0) AS total_expenses " +
         "FROM customers c " +
         "LEFT JOIN orders o ON c.id = o.customer_id " +
-        "WHERE o.created_at >= DATE_TRUNC('year', CURRENT_DATE - INTERVAL '1 year') " +
+        "WHERE o.ordered_at >= DATE_TRUNC('year', CURRENT_DATE - INTERVAL '1 year') " +
         "GROUP BY c.id"
     );
 
