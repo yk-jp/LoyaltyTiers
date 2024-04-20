@@ -9,14 +9,13 @@ export const getCustomerList = async (
 ) => {
   try {
     const customersData = await db.query(
-      "SELECT c.id, c.name, c.total_expense_tier AS totalExpense, t.name AS tier " +
+      "SELECT c.id, c.name, c.total_expense_tier AS totalexpense, t.name AS tier " +
         "FROM customers c " +
         "JOIN tiers t ON c.tier_id = t.id " +
         "ORDER BY c.id, c.name, c.total_expense_tier DESC"
     );
 
     const customers = customersData.rows;
-
     res.status(200).json({
       message: "OK",
       customers,

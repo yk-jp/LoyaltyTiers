@@ -33,7 +33,7 @@ export default function CustomerListTable({
               <td>{customer.id}</td>
               <td>{customer.name}</td>
               <td>{customer.tier}</td>
-              <td>{customer.totalExpense}</td>
+              <td>{customer.totalexpense}</td>
             </tr>
           ))}
         </tbody>
