@@ -1,21 +1,15 @@
 import React from "react";
 import "./CustomerListTable.css";
 
-type OrderListTableProps = {
-  customer: object;
-  ordersTotal: number;
-  orders: Array<object>;
+type CustomerListTableProps = {
+  customers: object;
 };
 
-export default function OrderListTable({
-  customer,
-  ordersTotal,
-  orders,
-}: OrderListTableProps) {
+export default function CustomerListTable({
+  customers,
+}: CustomerListTableProps) {
   return (
     <div>
-      <h2>Order history</h2>
-      <h2>Customer name : items number items ordered in total</h2>
       <table>
         <tr>
           <th>Order ID</th>
