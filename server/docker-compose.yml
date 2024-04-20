@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: postgres
+    container_name: loyaltytiers-postgres
     restart: always
     environment:
       POSTGRES_HOSTNAME: ${POSTGRES_HOSTNAME}
@@ -14,6 +15,7 @@ services:
       - ${POSTGRES_PORT}:5432
   server:
     image: loyaltytiers-server
+    container_name: loyaltytiers-server
     restart: always
     build:
       context: . # point at the Dockerfile in the current dir to auto build
