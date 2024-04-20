@@ -1,0 +1,11 @@
+/* default tag */
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+}
