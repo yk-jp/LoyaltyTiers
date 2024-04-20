@@ -21,3 +21,5 @@ export const db = new Pool({
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
 });
+
+export const clientAddress: string = process.env.CLIENT_ADDRESS;
