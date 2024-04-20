@@ -3,6 +3,29 @@ import express from "express";
 import { db } from "../config/config";
 import { GetCustomerInfoParams } from "types/queryParams";
 
+export const getCustomerList = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const customersData = await db.query(
+      "SELECT c.id, c.name, c.total_expense_tier, t.name AS tier " +
+        "FROM customers c " +
+        "JOIN tiers t ON c.tier_id = t.id " +
+        "ORDER BY c.id, c.name, c.total_expense_tier DESC"
+    );
+
+    const customers = customersData.rows;
+
+    res.status(200).json({
+      message: "OK",
+      customers,
+    });
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+};
+
 export const getCustomerInfo = async (
   req: express.Request<GetCustomerInfoParams, {}, {}, {}>, // type annotatation for request params
   res: express.Response

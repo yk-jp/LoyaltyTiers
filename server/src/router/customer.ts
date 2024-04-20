@@ -1,7 +1,8 @@
 import express from "express";
 
-import { getCustomerInfo } from "../controller/customer";
+import { getCustomerList, getCustomerInfo } from "../controller/customer";
 
 export default (router: express.Router) => {
+  router.get("/customers", getCustomerList);
   router.get("/customer/:customerId", getCustomerInfo);
 };
