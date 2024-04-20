@@ -3,13 +3,17 @@ import http from "http";
 import cors from "cors";
 import * as schedule from "node-schedule";
 
-import { port } from "./config/config";
+import { clientAddress, port } from "./config/config";
 import router from "./router";
 import { periodicUpdate } from "./cronJob";
 
 const app = express();
 
-app.use(cors({})); // add cors settings for frontend later.
+app.use(
+  cors({
+    origin: clientAddress,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

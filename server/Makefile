@@ -12,3 +12,6 @@ delete-if-server:
 # delete container
 delete-ic-postgres:
 	docker rm postgres
+
+delete-all-server:
+	$(MAKE) delete-if-server ; $(MAKE) delete-ic-postgres

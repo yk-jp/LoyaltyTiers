@@ -1,226 +1,27 @@
 import "./HomePage.css";
 import CustomerListTable from "../../Components/Customers/CustomerListTable";
 import { Customer } from "../../models/Customer";
+import { useEffect, useState } from "react";
+import { getCustomerList } from "../../Apis/customer";
 
 export default function HomePage() {
-  const customers: Customer[] = [
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-    {
-      id: 1,
-      name: "Mark",
-      totalExpense: 500,
-      tier: "Gold",
-    },
-    {
-      id: 2,
-      name: "Adams",
-      totalExpense: 460,
-      tier: "Silver",
-    },
-    {
-      id: 3,
-      name: "Lola",
-      totalExpense: 0,
-      tier: "Bronze",
-    },
-  ];
+  let [customers, setCustomers] = useState<Customer[]>([]);
+
+  useEffect(() => {
+    const fetchCustomerList = async () => {
+      try {
+        const data = await getCustomerList();
+        if (!data.customers) {
+          return;
+        }
+        setCustomers(data.customers);
+      } catch (error) {
+        console.error("Error fetching customer list:", error);
+      }
+    };
+    fetchCustomerList();
+    setCustomers(customers);
+  }, [customers]);
   return (
     <div className="justify-content-center align-items-center vh-100">
       <div>
