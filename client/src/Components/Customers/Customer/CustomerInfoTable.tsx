@@ -1,17 +1,17 @@
 import React from "react";
-import "./CustomerListTable.css";
+import "./CustomerInfoTable.css";
 
-type OrderListTableProps = {
+type CustomerInfoTableProps = {
   customer: object;
   ordersTotal: number;
   orders: Array<object>;
 };
 
-export default function OrderListTable({
+export default function CustomerInfoTable({
   customer,
   ordersTotal,
   orders,
-}: OrderListTableProps) {
+}: CustomerInfoTableProps) {
   return (
     <div>
       <h2>Order history</h2>
