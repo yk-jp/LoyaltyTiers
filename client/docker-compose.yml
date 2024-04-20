@@ -1,0 +1,12 @@
+version: "3"
+services:
+  client:
+    build: .
+    image: loyaltytiers-client
+    container_name: loyaltytiers-client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/app/src
+    # env_file:
+    #   - ./.env
