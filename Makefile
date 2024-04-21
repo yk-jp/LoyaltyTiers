@@ -21,3 +21,7 @@ delete-all-server:
 # delete client data
 delete-all-client:
 	$(CLIENT_MAKE) delete-all
+
+# delete-all
+delete-all:
+	$(MAKE) delete-all-server ; $(MAKE) delete-all-client
