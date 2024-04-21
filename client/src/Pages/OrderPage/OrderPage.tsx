@@ -21,7 +21,6 @@ export default function OrderPage() {
     const fetchOrderList = async (customerId: number) => {
       try {
         const data: OrderListResponse = await getOrderList({ customerId });
-        console.log("teett", data);
         if (!data.orders) {
           return;
         }

@@ -9,7 +9,6 @@ export const getOrderList = async (
   try {
     const customerId: number = params.customerId;
     const res = await apiClient.get<OrderListResponse>(`/order/${customerId}`);
-    console.log(res);
     return res.data;
   } catch (e: any) {
     if (axios.isAxiosError(e)) {
