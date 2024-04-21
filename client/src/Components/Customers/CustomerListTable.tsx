@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./CustomerListTable.css";
 import { Customer } from "../../models/Customer";
-import { Link } from "react-router-dom";
 
 type CustomerListTableProps = {
   customers: Customer[];
@@ -16,6 +17,7 @@ export default function CustomerListTable({
         <thead>
           <tr>
             <th></th>
+            <th></th>
             <th>Customer ID</th>
             <th>Name</th>
             <th>Current Tier</th>
@@ -28,6 +30,11 @@ export default function CustomerListTable({
               <td>
                 <Link to={`/customer/${customer.id}`}>
                   View Customer Detail
+                </Link>
+              </td>
+              <td>
+                <Link to={`/customer/${customer.id}/orders`}>
+                  View Order History
                 </Link>
               </td>
               <td>{customer.id}</td>
