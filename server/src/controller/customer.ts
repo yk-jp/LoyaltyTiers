@@ -1,11 +1,12 @@
 import express from "express";
 
 import { db } from "../config/config";
+import { CustomerInfoResponse, CustomerListResponse } from "types/response";
 import { GetCustomerInfoParams } from "types/queryParams";
 
 export const getCustomerList = async (
   req: express.Request,
-  res: express.Response
+  res: express.Response<CustomerListResponse>
 ) => {
   try {
     const customersData = await db.query(
@@ -27,7 +28,7 @@ export const getCustomerList = async (
 
 export const getCustomerInfo = async (
   req: express.Request<GetCustomerInfoParams, {}, {}, {}>, // type annotatation for request params
-  res: express.Response
+  res: express.Response<CustomerInfoResponse>
 ) => {
   const params: GetCustomerInfoParams = req.params;
   const customerId: number = params.customerId;
@@ -60,7 +61,7 @@ export const getCustomerInfo = async (
 
     const info = customerInfoData.rows[0];
 
-    let customerInfo = {
+    const customerInfo = {
       currentTier: info.current_tier,
       startOfTierCalculation: info.start_of_tier_calculation,
       totalExpenseTier: info.total_expense_tier,

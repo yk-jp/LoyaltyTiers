@@ -23,6 +23,11 @@ CREATE TABLE "orders" (
   "ordered_at" timestamp DEFAULT 'now()'
 );
 
+-- add indexes to all the fields that are frequently referenced.
+CREATE INDEX ON "customers" ("id");
+CREATE INDEX ON "orders" ("customer_id");
+CREATE INDEX ON "orders" ("ordered_at");
+
 -- one to many
 ALTER TABLE "customers" ADD FOREIGN KEY ("tier_id") REFERENCES "tiers" ("id");
 
