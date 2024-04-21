@@ -1,5 +1,6 @@
 import React from "react";
 import "./CustomerInfoCard.css";
+
 import { CustomerInfo } from "../../../models/Customer";
 
 type CustomerInfoCardProps = {
@@ -10,7 +11,7 @@ export default function CustomerInfoCard({
   customerInfo,
 }: CustomerInfoCardProps) {
   return (
-    <div className="customerInfoCard">
+    <div className="customerInfoCard bg-coral">
       <h2 className="card-title">Customer Info</h2>
       <div className="justify-content-between">
         <p>Current Tier:</p>

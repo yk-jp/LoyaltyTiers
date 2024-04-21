@@ -1,16 +1,15 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 import "./OrderPage.css";
 
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import Spinner from "../../Components/Spinner/Spinner";
 import Button from "../../Components/Button/Button";
 import OrderListTable from "../../Components/Order/OrderListTable";
-import { useEffect, useState } from "react";
-import { OrderListCustomer } from "../../models/Customer";
+import Spinner from "../../Components/Spinner/Spinner";
 import { Order } from "../../models/Order";
-import { getOrderList } from "../../Apis/order";
+import { OrderListCustomer } from "../../models/Customer";
 import { OrderListResponse } from "../../dtos/order.dto";
+import { getOrderList } from "../../Apis/order";
 
 export default function OrderPage() {
   let [isLoading, setIsLoading] = useState<boolean>(true);
@@ -31,7 +30,7 @@ export default function OrderPage() {
         setOrderTotal(data.total);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching customer list:", error);
+        console.error("Error fetching order list:", error);
       }
     };
 
@@ -52,7 +51,6 @@ export default function OrderPage() {
                   text={"return to home page"}
                   style={{
                     backgroundColor: "#FF7F50",
-                    color: "white",
                     padding: "1em",
                     margin: "1em",
                     border: "none",
@@ -67,7 +65,6 @@ export default function OrderPage() {
                   text={"View Customer Detail"}
                   style={{
                     backgroundColor: "#FF7F50",
-                    color: "white",
                     padding: "1em",
                     margin: "1em",
                     border: "none",
@@ -81,7 +78,7 @@ export default function OrderPage() {
             Customer Id: {customer!.id}, Customer Name: {customer!.name}
           </h2>
           <h2 className="text-align-center">
-            Order List: {orderTotal} ordered in total
+            Order History: {orderTotal} ordered in total
           </h2>
           <div className="max-vh-80 max-w-100">
             <OrderListTable orders={orderList!} />

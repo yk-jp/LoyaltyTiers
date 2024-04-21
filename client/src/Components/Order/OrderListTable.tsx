@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./OrderListTable.css";
 import { Order } from "../../models/Order";
 
@@ -10,7 +11,7 @@ export default function OrderListTable({ orders }: OrderListTableProps) {
   return (
     <div className="container">
       <table>
-        <thead>
+        <thead className="bg-coral">
           <tr>
             <th>Order ID</th>
             <th>Expense</th>

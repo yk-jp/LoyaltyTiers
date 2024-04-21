@@ -16,7 +16,6 @@ th {
   /* sticky header */
   position: sticky;
   top: 0px;
-  background-color: gray;
 }
 
 table {
@@ -25,7 +24,7 @@ table {
   white-space: nowrap;
   border-collapse: collapse;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid coral;
   max-height: 80vh;
   max-width: fit-content;
 }

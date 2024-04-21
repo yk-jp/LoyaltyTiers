@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./CustomerListTable.css";
+
 import { Customer } from "../../models/Customer";
 
 type CustomerListTableProps = {
@@ -15,7 +16,7 @@ export default function CustomerListTable({
     <div>
       <table>
         <thead>
-          <tr>
+          <tr className="bg-coral">
             <th></th>
             <th></th>
             <th>Customer ID</th>
