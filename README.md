@@ -10,7 +10,6 @@
 <br>
 ┃ ┣ 📂src
 <br>
-<br>
 ┃ ┃ ┣ 📜CronJob.ts **--cron job to refresh tier calculation**
 ┃ ┃ ┣ 📂Apis **-- Api folder with config**
 <br>
@@ -25,7 +24,6 @@
 ┃ ┃ ┣ 📂dtos **--Contains definitions of expected response data model from servers**
 <br>
 ┃ ┃ ┣ 📂models
-<br>
 <br>
 ┃ ┃ ┣ 📂types **--Contains query param interface**
 <br>
@@ -48,7 +46,7 @@
 
 # DB Schema
 
-<img align="center" src="./server/dataset/LoyaltyTiers.pdf" alt="image" />
+<img align="center" src="./server/dataset/LoyaltyTiers.png" alt="image" />
 
 # Setup for local development
 
