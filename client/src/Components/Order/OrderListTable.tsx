@@ -1,32 +1,32 @@
 import React from "react";
 import "./OrderListTable.css";
+import { Order } from "../../models/Order";
+import { Link } from "react-router-dom";
 
 type OrderListTableProps = {
-  customer: object;
-  ordersTotal: number;
-  orders: Array<object>;
+  orders: Order[];
 };
 
-export default function OrderListTable({
-  customer,
-  ordersTotal,
-  orders,
-}: OrderListTableProps) {
+export default function OrderListTable({ orders }: OrderListTableProps) {
   return (
-    <div>
-      <h2>Order history</h2>
-      <h2>Customer name : items number items ordered in total</h2>
+    <div className="container">
       <table>
-        <tr>
-          <th>Order ID</th>
-          <th>Expense</th>
-          <th>Date</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Expense</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <tr key={order.id}>
+              <td>{order.id}</td>
+              <td>{order.total_cents}</td>
+              <td>{String(order.ordered_at)}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
