@@ -4,3 +4,8 @@ export interface Customer {
   tier: string;
   totalexpense: number;
 }
+
+export interface OrderListCustomer {
+  id: number;
+  name: string;
+}
