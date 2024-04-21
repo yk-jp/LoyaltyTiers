@@ -1,16 +1,15 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 import "./OrderPage.css";
 
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import Spinner from "../../Components/Spinner/Spinner";
 import Button from "../../Components/Button/Button";
 import OrderListTable from "../../Components/Order/OrderListTable";
-import { useEffect, useState } from "react";
-import { OrderListCustomer } from "../../models/Customer";
+import Spinner from "../../Components/Spinner/Spinner";
 import { Order } from "../../models/Order";
-import { getOrderList } from "../../Apis/order";
+import { OrderListCustomer } from "../../models/Customer";
 import { OrderListResponse } from "../../dtos/order.dto";
+import { getOrderList } from "../../Apis/order";
 
 export default function OrderPage() {
   let [isLoading, setIsLoading] = useState<boolean>(true);

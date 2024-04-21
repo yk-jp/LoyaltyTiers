@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./CustomerPage.css";
 
-import Spinner from "../../Components/Spinner/Spinner";
-
-import CustomerInfoCard from "../../Components/Customers/Customer/CustomerInfoCard";
 import Button from "../../Components/Button/Button";
+import Spinner from "../../Components/Spinner/Spinner";
+import CustomerInfoCard from "../../Components/Customers/Customer/CustomerInfoCard";
+import { CustomerInfoResponse } from "../../dtos/customer.dto";
 import { CustomerInfo } from "../../models/Customer";
 import { getCustomerInfo } from "../../Apis/customer";
-import { CustomerInfoResponse } from "../../dtos/customer.dto";
-import { useParams } from "react-router-dom";
 
 export default function CustomerPage() {
   let [isLoading, setIsLoading] = useState<boolean>(true);

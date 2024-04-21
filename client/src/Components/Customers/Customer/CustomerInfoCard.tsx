@@ -1,5 +1,6 @@
 import React from "react";
 import "./CustomerInfoCard.css";
+
 import { CustomerInfo } from "../../../models/Customer";
 
 type CustomerInfoCardProps = {

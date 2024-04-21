@@ -1,7 +1,9 @@
-import "./HomePage.css";
-import CustomerListTable from "../../Components/Customers/CustomerListTable";
-import { Customer } from "../../models/Customer";
 import { useEffect, useState } from "react";
+
+import "./HomePage.css";
+
+import { Customer } from "../../models/Customer";
+import CustomerListTable from "../../Components/Customers/CustomerListTable";
 import { getCustomerList } from "../../Apis/customer";
 
 export default function HomePage() {

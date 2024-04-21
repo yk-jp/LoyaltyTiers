@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./CustomerListTable.css";
+
 import { Customer } from "../../models/Customer";
 
 type CustomerListTableProps = {
