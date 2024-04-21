@@ -81,7 +81,7 @@ export default function OrderPage() {
             Customer Id: {customer!.id}, Customer Name: {customer!.name}
           </h2>
           <h2 className="text-align-center">
-            Order List: {orderTotal} ordered in total
+            Order History: {orderTotal} ordered in total
           </h2>
           <div className="max-vh-80 max-w-100">
             <OrderListTable orders={orderList!} />
