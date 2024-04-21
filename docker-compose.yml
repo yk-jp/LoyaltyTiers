@@ -9,7 +9,8 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./client/src:/app/src
+      - ./client:/app
+      - /app/node_modules
     env_file:
       - ./client/.env
     depends_on:
@@ -25,6 +26,7 @@ services:
       - ${API_PORT}:8080
     volumes:
       - ./server:/app # enable hot-reloading using nodemon to speed up development
+      - /app/node_modules
     env_file:
       - ./server/.env
     depends_on:
