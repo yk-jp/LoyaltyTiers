@@ -51,7 +51,6 @@ export default function OrderPage() {
                   text={"return to home page"}
                   style={{
                     backgroundColor: "#FF7F50",
-                    color: "white",
                     padding: "1em",
                     margin: "1em",
                     border: "none",
@@ -66,7 +65,6 @@ export default function OrderPage() {
                   text={"View Customer Detail"}
                   style={{
                     backgroundColor: "#FF7F50",
-                    color: "white",
                     padding: "1em",
                     margin: "1em",
                     border: "none",

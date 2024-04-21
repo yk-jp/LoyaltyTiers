@@ -16,7 +16,7 @@ export default function CustomerListTable({
     <div>
       <table>
         <thead>
-          <tr>
+          <tr className="bg-coral">
             <th></th>
             <th></th>
             <th>Customer ID</th>
