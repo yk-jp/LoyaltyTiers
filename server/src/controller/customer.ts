@@ -62,7 +62,7 @@ export const getCustomerInfo = async (
 
     let customerInfo = {
       currentTier: info.current_tier,
-      stateOfTierCalclation: info.start_of_tier_calculation,
+      startOfTierCalculation: info.start_of_tier_calculation,
       totalExpenseTier: info.total_expense_tier,
       expenseToNextTier: info.expense_to_next_tier,
       downgradeTo: info.downgrade_to,
