@@ -3,13 +3,14 @@ import express from "express";
 import { db } from "../config/config";
 import { CompleteOrderDto } from "dtos/Order.dto";
 import { GetCustomerOrderParams } from "types/queryParams";
+import { OrderListResponse, SaveOrderResponse } from "types/response";
 
 /**
  * circle back here to extend this api for pagination if there's time left.
  */
 export const getCustomerOrder = async (
   req: express.Request<GetCustomerOrderParams, {}, {}, {}>, // type annotatation for request params
-  res: express.Response
+  res: express.Response<OrderListResponse>
 ) => {
   const params: GetCustomerOrderParams = req.params;
   const customerId: number = params.customerId;
@@ -42,7 +43,7 @@ export const getCustomerOrder = async (
 
 export const saveOrder = async (
   req: express.Request<{}, {}, CompleteOrderDto>, // type annotate request body
-  res: express.Response
+  res: express.Response<SaveOrderResponse>
 ) => {
   const orderDetails: CompleteOrderDto = req.body;
   try {
