@@ -6,6 +6,7 @@ WORKDIR /app
 
 # make sure to consider cache here
 COPY package.json ./
+COPY nodemon.json ./
 RUN npm install
 
 COPY . .

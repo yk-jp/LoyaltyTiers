@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@types/node-schedule": "^2.1.7",
+    "@types/nodemon": "^1.19.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

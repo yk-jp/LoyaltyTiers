@@ -9,9 +9,12 @@ delete-i-server:
 delete-if-server:
 	docker rmi -f loyaltytiers-server
 
+delete-c-server:
+	docker rm loyaltytiers-server
+
 # delete container
-delete-ic-postgres:
+delete-c-postgres:
 	docker rm loyaltytiers-postgres
 
 delete-all-server:
-	$(MAKE) delete-if-server ; $(MAKE) delete-ic-postgres
+	$(MAKE) delete-c-server ; $(MAKE) delete-if-server ; $(MAKE) delete-c-postgres
