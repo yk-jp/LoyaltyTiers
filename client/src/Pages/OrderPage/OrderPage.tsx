@@ -30,7 +30,7 @@ export default function OrderPage() {
         setOrderTotal(data.total);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching customer list:", error);
+        console.error("Error fetching order list:", error);
       }
     };
 
