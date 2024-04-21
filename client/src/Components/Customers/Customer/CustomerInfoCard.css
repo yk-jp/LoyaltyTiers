@@ -1,0 +1,33 @@
+h2 {
+  margin: 1.2em;
+}
+
+p {
+  margin: 2em;
+}
+
+.customerInfoCard {
+  background-color: #ff7f50;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.container p {
+  margin: 5px 0;
+}
+
+.justify-content-between {
+  display: flex;
+  justify-content: space-between;
+}
