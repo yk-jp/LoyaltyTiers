@@ -54,7 +54,7 @@
 clone the repo
 
 ```
-git@github.com:yk-jp/loyaltyTiers.git
+git clone git@github.com:yk-jp/loyaltyTiers.git
 ```
 
 run docker. (.env is stored already for the sake of making it simple to set up)
