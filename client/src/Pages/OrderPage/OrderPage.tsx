@@ -1,8 +1,10 @@
 import "./OrderPage.css";
 
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Spinner from "../../Components/Spinner/Spinner";
+import Button from "../../Components/Button/Button";
 import OrderListTable from "../../Components/Order/OrderListTable";
 import { useEffect, useState } from "react";
 import { OrderListCustomer } from "../../models/Customer";
@@ -43,6 +45,38 @@ export default function OrderPage() {
         </div>
       ) : (
         <div>
+          <div className="justify-content-center">
+            <div>
+              <Link to={"/"}>
+                <Button
+                  text={"return to home page"}
+                  style={{
+                    backgroundColor: "#FF7F50",
+                    color: "white",
+                    padding: "1em",
+                    margin: "1em",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+            </div>
+            <div>
+              <Link to={`/customer/${customer!.id}`}>
+                <Button
+                  text={"View Customer Detail"}
+                  style={{
+                    backgroundColor: "#FF7F50",
+                    color: "white",
+                    padding: "1em",
+                    margin: "1em",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+            </div>
+          </div>
           <h2 className="text-align-center">
             Customer Id: {customer!.id}, Customer Name: {customer!.name}
           </h2>

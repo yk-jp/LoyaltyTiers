@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./CustomerListTable.css";
 import { Customer } from "../../models/Customer";
-import { Link } from "react-router-dom";
 
 type CustomerListTableProps = {
   customers: Customer[];

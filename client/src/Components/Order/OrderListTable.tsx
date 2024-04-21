@@ -1,7 +1,6 @@
 import React from "react";
 import "./OrderListTable.css";
 import { Order } from "../../models/Order";
-import { Link } from "react-router-dom";
 
 type OrderListTableProps = {
   orders: Order[];
