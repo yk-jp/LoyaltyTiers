@@ -29,8 +29,3 @@ table {
   max-height: 80vh;
   max-width: fit-content;
 }
-
-.container {
-  display: flex;
-  justify-content: center;
-}
